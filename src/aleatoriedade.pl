@@ -35,13 +35,13 @@ solucao_aleatoria :- nl,
     recorda(dica_arma, Dica),
         
     nl,
-    random_between(1, 5, IndiceLocal),    
+    random_between(1, 10, IndiceLocal),    
     local(IndiceLocal, Local, DicaLocal),
     recorda(idLocal, IndiceLocal),
     recorda(dica_local, DicaLocal),
 
     nl,
-    random_between(1, 5, IndiceMotivo),
+    random_between(1, 10, IndiceMotivo),
     motivo(IndiceMotivo, Motivo, DicaMotivo),
     recorda(idMotivo, IndiceMotivo),
     recorda(dica_motivo, DicaMotivo),
@@ -106,9 +106,9 @@ menuLocal :- nl,
     
     % Mapeamento das Alternativas
     local(OpcaoCorretaB,NomeLocalCerto,_),
-    random(1, 5, Opcao1), local(Opcao1,LocalErrado1,_),
-    random(1, 5, Opcao2),local(Opcao2,LocalErrado2,_),
-    random(1, 5, Opcao3), local(Opcao3,LocalErrado3,_),
+    random(1, 10, Opcao1), local(Opcao1,LocalErrado1,_),
+    random(1, 10, Opcao2),local(Opcao2,LocalErrado2,_),
+    random(1, 10, Opcao3), local(Opcao3,LocalErrado3,_),
 
     random_permutation([LocalErrado1, LocalErrado2, LocalErrado3, NomeLocalCerto],AlternativasLocal),
 
@@ -154,9 +154,9 @@ menuMotivo :- nl,
     
     % Mapeamento das Alternativas
     motivo(OpcaoCorretaC,NomeMotivoCerto,_),
-    random(1, 5, Opcao1), motivo(Opcao1,MotivoErrado1,_),
-    random(1, 5, Opcao2), motivo(Opcao2,MotivoErrado2,_),
-    random(1, 5, Opcao3), motivo(Opcao3,MotivoErrado3,_),
+    random(1, 10, Opcao1), motivo(Opcao1,MotivoErrado1,_),
+    random(1, 10, Opcao2), motivo(Opcao2,MotivoErrado2,_),
+    random(1, 10, Opcao3), motivo(Opcao3,MotivoErrado3,_),
 
     random_permutation([MotivoErrado1, MotivoErrado2, MotivoErrado3, NomeMotivoCerto],AlternativasMotivo),
 
