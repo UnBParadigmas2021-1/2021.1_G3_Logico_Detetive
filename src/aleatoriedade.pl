@@ -5,7 +5,19 @@
 :- consult(databases/locais).
 :- consult(databases/solucao).
 
+incrementador(X, X1) :-
+    X1 is X+1.
+
+contador_global :-
+    CONTADOR is 0,
+    recorda(contador, CONTADOR).
+
+gameOver:-
+    nl, write('GAME OVER'),nl.
+
 solucao_aleatoria :- nl,
+    contador_global,
+
     random_between(1, 10, IndiceArma),
     arma(IndiceArma, Arma, _),
     write('IndiceArma:'), write(IndiceArma),
@@ -26,7 +38,8 @@ solucao_aleatoria :- nl,
     nl,
     asserta(solucao(Arma, Local, Motivo)),
     solucao(RespostA, RespostB, RespostC),
-    write('Solucao Final:'), write(RespostA), write('-'), write(RespostB), write('-'), write(RespostC).
+    write('Solucao Final:'), write(RespostA), write('-'), write(RespostB), write('-'), write(RespostC), nl,
+    write(counter).
 
 
 menuArma :- nl,
@@ -60,5 +73,16 @@ menuArma :- nl,
     read_line_to_codes(user_input,Cs), atom_codes(RespostaUsuario, Cs), atomic_list_concat(L, ' ', RespostaUsuario),
     write(RespostaUsuario),
     
-    % Verificando a Resposta
-    (solucao(RespostaUsuario,_,_) -> nl, write('Igual'), nl;nl, write('Diferente'), nl).
+    % Verificando a Resposta    
+    (solucao(RespostaUsuario,_,_) -> 
+        nl, write('Chamar outro menu (Motivo ou Local)'), nl;
+        
+        % Lógica dos Valores referentes ao Incrementador
+        recorded(contador, CONTADOR),
+        incrementador(CONTADOR, CONTADOR_ATUAL),
+        recorda(contador, CONTADOR_ATUAL),
+
+        (CONTADOR_ATUAL < 5 -> 
+            tty_clear, write('ERROU!! Você possui '), write(CONTADOR_ATUAL/4) ,write(' tentativas'), menuArma ; gameOver)).
+
+        
