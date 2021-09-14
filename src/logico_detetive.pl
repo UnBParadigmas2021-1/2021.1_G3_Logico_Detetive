@@ -13,7 +13,7 @@ contador_global :-
     recorda(contador, CONTADOR).
 
 
-solucao_aleatoria :- nl,
+jogar :- nl,
     % Start
 
     contador_global,
