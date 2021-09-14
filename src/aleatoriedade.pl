@@ -5,11 +5,6 @@
 :- consult(databases/locais).
 :- consult(databases/solucao).
 
-intro:-
-    write('=======================================\n'),
-    write('========= DETETIVE - THE GAME =========\n'),
-    write('=======================================\n').
-
 incrementador(X, X1) :-
     X1 is X+1.
 
@@ -17,15 +12,11 @@ contador_global :-
     CONTADOR is 0,
     recorda(contador, CONTADOR).
 
-gameOver:-
-    nl, write('GAME OVER'),nl.
 
 solucao_aleatoria :- nl,
+    % Start
+
     contador_global,
-
-    % Game intro
-    intro,
-
     random_between(1, 10, IndiceArma),
     arma(IndiceArma, Arma, _),
     
@@ -52,6 +43,8 @@ solucao_aleatoria :- nl,
     menuArma.
 
 menuArma :-
+
+    intro_game,
     write('\nDica da arma do crime: '), recorded(dica_arma, X),
     write(X),
     write('\n\nChute uma das opções abaixo:\n'),
@@ -179,7 +172,7 @@ menuMotivo :- nl,
     
     % Verificando a Resposta    
     (solucao(_,_,RespostaUsuario) -> 
-        nl, write('\n\nVocê desvendou o assassinato!\n\n'), nl;
+        nl, sherlock, nl;
         
         % Lógica dos Valores referentes ao Incrementador
         
@@ -190,3 +183,101 @@ menuMotivo :- nl,
 
         (CONTADOR_LOCAL < 5 -> 
             write('ERROU!! Você possui '), write(CONTADOR_LOCAL/4) ,write(' tentativas') ,tty_clear, menuMotivo; gameOver)).
+
+intro_game:-
+write('          `        `        `+y+.ohhdo `          '), nl,
+write('                           :yo+smy+++yo.          '), nl,
+write('                          -do+++oydyo+oyd.        '), nl,
+write('                        `sy:mmys++ohdyssd`        '), nl,
+write('                       `yoymssdNhhyoohsm:         '), nl,
+write('                      `ho:/ys:yodoohhyyd.         '), nl,
+write('                  `:+osyhs//y--.++:oyyoyh.   .-:. '), nl,
+write('              `--os+//::/sh/+s./sys--:o/-``:oyhmoo'), nl,
+write('             :ohdo/:::::+sdh/h:omMM+-.-d`/ods:++.s'), nl,
+write('        +ho+/m+yh+/:::/+::/shhyoo+h///oooys/.++:s.'), nl,
+write('        .dyo/+hodsos//+d/:::/yy. ``   -s/o:/ss+o. '), nl,
+write('         +d+/:/hosyysossh+:::/oho.  ``d/h+yohh:`  '), nl,
+write('         `oyo/::/dh++yhydhs/::/shh//syydhdd+-`    '), nl,
+write('           ./yyo+osssdydsddh+oyso/++dMho:-`       '), nl,
+write('             `+NNmmddddmhm:-yhsh-..+shy           '), nl,
+write('         ` .ooodMMd/shNMMN.  ``h/-++oy-           '), nl,
+write('       ```+hMMMNNmo``/dMMN:   `sy/os:`            '), nl,
+write(' ```..---:hmMMho/--+mMMMy.`                       '), nl,
+write('`.-:///////smmdds//hMNMMmys+`                     '), nl,
+write('`.-:://////////////++//::---`                     '), nl,
+write('   ```....-.---.....```       `        ` '), nl,
+write('================================================================\n'),
+write('======================= DETETIVE - THE GAME ====================\n'),
+write('================================================================\n').
+
+gameOver:-
+write('`````````````````````````````````````````````````````````````````'), nl,
+write('```````````````````````````/+-```````````````````````````````````'), nl,
+write('`````````````````````````.:+hs+hdddddho::.```````````````````````'), nl,
+write('```````````````````.----/ydmmmmmmmmmmmmmmdo.`````````````````````'), nl,
+write('```````````````````:hhhdmmmmmmmmmmmmmmmmmmmmh````````````````````'), nl,
+write('``````````````````````/dmmmmmmmmmmmmmmmmmmmmd.```````````````````'), nl,
+write('``````````````````````:dmmmmyshmmmmmmdssdmmmd.```````````````````'), nl,
+write('``````````````````````:dmd+-``./hmmh/-``.+dmd.```````````````````'), nl,
+write('``````````````````````:dmh`````.ymms`````-hmd.```````````````````'), nl,
+write('``````````````````````:dmmo-`./sdmmd+-`-/ymmd.```````````````````'), nl,
+write('``````````````````````:dmmmmhhmmmmmmmdhhmmmmmyys:````````````````'), nl,
+write('```````````````````````:/hddmmmm+/:+mmmmmmd+////:````````````````'), nl,
+write('````````````````````````.+//dmmmhdhhmmmmso.``````````````````````'), nl,
+write('````````````````````````:ss:dmmdmddddmmm.````````````````````````'), nl,
+write('```````````````````````````-sys+s+o+osyo`````````````````````````'), nl,
+write('```````````````````````````:dmmmmmmmmmmh.````````````````````````'), nl,
+write('````````````````````````````:odddddddds:yys-+o```````````````````'), nl,
+write('``````````````````````````````.........`...``.```````````````````'), nl,
+write('`````````````````````````````````````````````````````````````````'), nl,
+write('``````...........oyyssss/``.oysyo.``:yyo-./yys/s+yyssssso.```````'), nl,
+write('`````.osssssssymmmhs----..+dmy:sddo.:mmmdymmmd-ymmy-----.````````'), nl,
+write('``````````````:mmm/`oyyy/-dmm/-/dmm::mmmmmmmmd-smmdss-```````````'), nl,
+write('``````````````.ohmy/-hmms-dmmyssmmm::mmd/s+mmd-smmy--.```````````'), nl,
+write('``````````````:s:odhyhddo.ydh-`.shh--ddy.`.hdh-oddhyyyyys.```````'), nl,
+write('`````````````````````````````````````````````````````````````````'), nl,
+write('```````````````.oysssss:-+syo.`.oys-:yyyssssss-+yysssss+`````````'), nl,
+write('``````````````.hmmo--hmdo-dmd-.shmm:/mmd:------smmy.-ommy````````'), nl,
+write('``````````````.hmm+``ymms-dmmy/ymmm:/mmmyyy+``+yhmy-sdmmh.```````'), nl,
+write('``````/:`-////+dmm+``ymms``+dmmmds.`/mmd-...```ymmdmmmy/`````````'), nl,
+write('``````-:`.//////ymhyydms-```.+ds:/oosmms///ohy:omms:hmmdo````````'), nl,
+write('`````````````````````````````````````````````````````````````````'), nl,
+write('`````````````````````````````````````````````````````````````````'), nl,
+write(''), nl.
+
+sherlock :-
+    write('````````````````````````````````.-```````````````````````````````'), nl,
+    write('````````````````````.://:-::ohhsodm``````````````````````````````'), nl,
+    write('``````````````````:dyhmmNNMMMMMMNds+::```````````````````````````'), nl,
+    write('````````````````:ydMMMMMMMMMMMMMMMMMNy/``````````````````````````'), nl,
+    write('``````````````.sNMMMMMMMMMMMMMMMMMMMMMMmo````````````````````````'), nl,
+    write('`````````````oNMMMMMMMMMMMMMMMMMMMMMMMMMMd.``````````````````````'), nl,
+    write('````````````hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd``````````````````````'), nl,
+    write('```````````+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMs`````````````````````'), nl,
+    write('```````````hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+````````````````````'), nl,
+    write('```````````hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd+.`````````````````'), nl,
+    write('```````````sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm+.```````````````'), nl,
+    write('```````````sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmyhhdmmh/``````````````'), nl,
+    write('``````````-mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMs.```....``````````````'), nl,
+    write('`````````/NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm/````````````````````'), nl,
+    write('````````/NMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN/```````````````````'), nl,
+    write('``````.sdhs+::NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN/``````````````````'), nl,
+    write('``````.-.`````/mMMMMMMMMMMMMMMMMMMMMMMMMMMNosho``````````````````'), nl,
+    write('```````````````.hMMMMMMMMMMMMMMMMMMMMMMMMMN-`````````````````````'), nl,
+    write('``````````````.-oMMMMMMMMMMMMMMMMMMMMMMMMMMs/:-``````````````````'), nl,
+    write('`````````````omNNMMMMMMMMMMMMMMMMMMMMMMMMNo-:+hy.````````````````'), nl,
+    write('````````````sMMMMMMMMMMMMMMMMMMMMMMMMMMMMN-```.mh````````````````'), nl,
+    write('``````````-hMMMMMMMMMMMMMMMMMMMMMmNNNMMMMMy````hMy```````````````'), nl,
+    write('`````````-NMMMMMMMMMMMMMMMMMMMMMh`-::/oss+.````sMM-`.hddhy-``````'), nl,
+    write('`````````-MMMMMMMMMMMMMMMMMMMMMMy```````````````yMo`:MMMMM:``````'), nl,
+    write('````````-mMMMMMMMMMMMMMMMMMMMMMMd-``````````````-MN-/MMMMM.``````'), nl,
+    write('```````:NMMMMMMMMMMMMMMMMMMMMMMMM-```````````````oNNMMMMMs```````'), nl,
+    write('``````-NMMMMMMMMMMMMMMMMMMMMMMMMN:````````````````-shdhy:````````'), nl,
+    write('```````:ohmNNNNmmmmNNMMMMMMMMMMMMN+``````````````````````````````'), nl,
+    write('````````````````````.:+hNMMMMMMMMMMh.`PARABÉNS````````````````````'), nl,
+    write('````````````````````````.omMMMMMMMMMm-`````VOCÊ````````````````'), nl,
+    write('```````````````````````````/hNMMMMMMMm.```````DESVENDOU``````````'), nl,
+    write('`````````````````````````````./ymNMMMMh`````````````O CASO``````````'), nl,
+    write(''), nl.
+
+
