@@ -44,8 +44,7 @@ jogar.
 
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
-
+Vídeo disponível no repositório do projeto.
 
 ## Fontes
 [Prolog Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/problemas-prolog/)
