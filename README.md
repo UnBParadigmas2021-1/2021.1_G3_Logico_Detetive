@@ -16,7 +16,12 @@
 Implementação do jogo detetive(clue) utilizando como ferramenta o paradigma lógico.
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+
+![logico_detetive_1](https://user-images.githubusercontent.com/26303209/133177806-5742edcd-5392-4ae9-bb7f-e98032fcba44.png)
+
+![logico_detetive_2](https://user-images.githubusercontent.com/26303209/133177817-8c2a7ace-1792-4eae-aa39-8d44bd136fe8.png)
+
+
 
 ## Instalação 
 **Linguagens**: prolog <br>
